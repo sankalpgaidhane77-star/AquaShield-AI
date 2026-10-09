@@ -2,19 +2,20 @@
   <img src="https://img.shields.io/badge/Water-Security-00B4D8?style=for-the-badge&logo=water&logoColor=white" alt="Water Security" />
   <img src="https://img.shields.io/badge/AI-Powered-FF6B35?style=for-the-badge&logo=artificial-intelligence&logoColor=white" alt="AI Powered" />
   <img src="https://img.shields.io/badge/Real--Time-Monitoring-2E8B57?style=for-the-badge&logo=grafana&logoColor=white" alt="Real-Time Monitoring" />
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
 </div>
 
 <br/>
 
 <div align="center">
   <h1>🌊 AquaShield AI</h1>
-  <p><strong>Intelligent Water Quality Monitoring & Prediction Platform</strong></p>
+  <p><strong>AI-Powered Water Quality Monitoring, Safety Classification & Safe Source Locator Platform</strong></p>
   
-  [![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-  [![Node.js](https://img.shields.io/badge/Node.js-43853D?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
-  [![Flask](https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
-  [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-  [![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
+  [![React](https://img.shields.io/badge/React-19-20232A?style=flat-square&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+  [![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+  [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org/)
+  [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+  [![Vite](https://img.shields.io/badge/Vite-8.3-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
   [![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
 </div>
@@ -26,105 +27,203 @@
 - [Key Features](#-key-features)
 - [Architecture](#-architecture)
 - [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
 - [API Endpoints](#-api-endpoints)
-- [ML Model](#-ml-model)
+- [ML Engine & Water Quality Model](#-ml-engine--water-quality-model)
 - [Installation & Setup](#-installation--setup)
-- [Usage Guide](#-usage-guide)
+- [Running Tests](#-running-tests)
 - [Contributing](#-contributing)
 - [License](#-license)
-- [Contact](#-contact)
 
 ---
 
 ## 🎯 Overview
 
-**AquaShield AI** is a comprehensive water security platform that leverages machine learning to predict water quality and provide real-time monitoring solutions. Built with a modern full-stack architecture, it offers community-driven reporting, location-based services, and intelligent safety classification to ensure access to safe drinking water.
+**AquaShield AI** is an intelligent water security platform combining machine learning, real-time IoT sensor telemetry, geospatial mapping, and community-driven incident reporting to safeguard drinking water.
 
-### 🚀 Why AquaShield AI?
-- **Early Warning System**: Predicts water quality issues before they become critical
-- **Community-Driven**: Empowers citizens to report and track water contamination
-- **Accessible Insights**: Provides actionable recommendations for water safety
-- **Scalable Architecture**: Designed for expansion to smart city infrastructure
+### 🚀 Highlights
+- **Early Hazard Detection**: Predicts contamination risk across pH, Turbidity, TDS, and Temperature.
+- **Nearest Safe Source Locator**: Finds the closest verified potable water source with GPS routing.
+- **Community Incident Reporting**: Allows citizens to report issues with geo-tags and photo proof.
+- **Actionable Guidance**: Translates complex chemical parameters into plain-language drinking advice.
 
 ---
 
 ## ✨ Key Features
 
-### 🏠 **Home Dashboard**
-- Platform overview with quick navigation
-- Real-time water quality statistics
-- Interactive call-to-action buttons
+### 🏠 **Interactive Dashboard**
+- Real-time parameter stream: pH, Turbidity, TDS, Temperature.
+- City-wide water security score and regional safety distribution.
+- Interactive safety status banners and quick-action shortcuts.
 
-### 📊 **Live Monitoring**
-- **Real-time Metrics**: pH, Turbidity, TDS, Temperature with simulated drift
-- **7-Day Trend Analysis**: Historical data visualization with interactive charts
-- **Instant Alerts**: Visual indicators for parameter thresholds
+### 🤖 **AI Water Safety Classifier**
+- **4 Key Parameters**: pH (0-14), Turbidity (NTU), TDS (ppm), Temperature (°C).
+- **Classification Output**: 
+  - 🟢 **Safe** (WHO/EPA compliant for direct consumption)
+  - 🟡 **Moderate** (Requires boiling/filtration before use)
+  - 🔴 **Dangerous** (Severe chemical or pathogen risk - do not consume)
+- **Confidence Scoring & Treatment Advice**: Step-by-step guidance tailored to the detected risk.
 
-### 🤖 **AI Prediction Engine**
-- **Input Parameters**: pH, Turbidity, TDS, Temperature
-- **Safety Classification**: 
-  - 🟢 Safe (Green)
-  - 🟡 Moderate (Yellow) 
-  - 🔴 Dangerous (Red)
-- **Confidence Scoring**: Probability-based classification
-- **Actionable Recommendations**: Customized suggestions based on results
-
-### 🗺️ **Water Locator**
-- **Interactive Map**: Find nearby safe water sources
-- **Location Types**:
-  - Springs & Natural Sources
-  - Purification Wells
-  - Public Tap Stations
+### 🗺️ **Safe Source Locator & Map**
+- Interactive Leaflet map displaying verified water sources:
+  - Springs & Natural Reservoirs
+  - Deep Ground Borewells & Wells
+  - Municipal Public Tap Stations
   - Accredited Testing Facilities
-- **Quality Metrics**: Status and parameter data for each location
+- Real-time calculation of distance (km) and walking time.
+- Direct "Route to Safe Water" navigational path generation.
 
-### 🚨 **Issue Reporting**
-- **Community Reporting**: Submit contamination reports
-- **Categories**: Industrial Runoff, Algal Bloom, Sewage, Chemical Spill
-- **GPS Integration**: Automatic location tagging
-- **Photo Upload**: Visual evidence submission
-- **Status Tracking**: Reported → Investigating → Resolved
+### 🚨 **Community Reports & Alerts**
+- Crowdsourced reporting for industrial runoff, algal blooms, discoloration, and pipe bursts.
+- Upvoting and verification workflows.
+- Real-time advisory alerts with urgency badges (Advisory, Warning, Critical).
 
 ---
 
 ## 💻 Tech Stack
 
 ### Frontend
-| Technology | Purpose |
-|------------|---------|
-| **React 18** | UI Framework |
-| **Vite** | Build Tool |
-| **TailwindCSS** | Styling |
-| **React Router DOM** | Navigation |
-| **Recharts** | Data Visualization |
-| **Leaflet** | Interactive Maps |
-| **Axios** | API Communication |
+- **Framework**: React 19 + Vite 8
+- **Styling**: Tailwind CSS
+- **Mapping**: Leaflet & React-Leaflet
+- **Data Visualization**: Recharts
+- **Icons**: Lucide React
 
 ### Backend
-| Technology | Purpose |
-|------------|---------|
-| **Node.js** | Runtime Environment |
-| **Express.js** | Web Framework |
-| **CORS** | Cross-Origin Resource Sharing |
-| **Dotenv** | Environment Variables |
+- **Framework**: FastAPI (Asynchronous Python)
+- **Database**: SQLite / PostgreSQL via Async SQLAlchemy 2.0 & Aiosqlite
+- **Authentication**: JWT (JSON Web Tokens) with Passlib & Bcrypt
+- **API Documentation**: Interactive Swagger UI (`/docs`) & ReDoc (`/redoc`)
 
 ### Machine Learning
-| Technology | Purpose |
-|------------|---------|
-| **Flask** | ML Service API |
-| **Python 3.9+** | Core Language |
-| **NumPy** | Numerical Computing |
-| **Custom RF** | 5-Tree Random Forest Implementation |
+- **Model**: Scikit-learn Random Forest Classifier
+- **Features**: pH, Turbidity (NTU), Total Dissolved Solids (ppm), Temperature (°C)
+- **Fallback Engine**: Deterministic WHO & EPA water quality safety rules
+
+---
+
+## 📁 Project Structure
+
+```
+AquaShield-AI/
+├── backend/
+│   ├── app/
+│   │   ├── api/
+│   │   │   ├── alerts_router.py
+│   │   │   ├── analytics_router.py
+│   │   │   ├── auth_router.py
+│   │   │   ├── predict_router.py
+│   │   │   ├── reports_router.py
+│   │   │   └── sources_router.py
+│   │   ├── services/
+│   │   │   ├── alert_service.py
+│   │   │   ├── geo_service.py
+│   │   │   └── ml_service.py
+│   │   ├── auth.py
+│   │   ├── config.py
+│   │   ├── database.py
+│   │   ├── main.py
+│   │   ├── models.py
+│   │   └── schemas.py
+│   ├── tests/
+│   │   └── test_api.py
+│   ├── seed_data.py
+│   └── requirements.txt
+├── frontend/
+│   ├── src/
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   ├── index.css
+│   │   └── main.jsx
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
+├── ml/
+│   ├── dataset.csv
+│   ├── model.joblib
+│   ├── predict.py
+│   └── train.py
+├── data/
+│   ├── sample_sources.json
+│   └── water_quality_training_data.csv
+├── requirements.txt
+└── README.md
+```
 
 ---
 
 ## 🔌 API Endpoints
 
-| Method | Endpoint | Description | Request Body |
-|--------|----------|-------------|--------------|
-| `GET` | `/api/metrics` | Live + historical water data | - |
-| `GET` | `/api/locations` | Safe sources & testing facilities | - |
-| `GET` | `/api/issues` | All reported contamination issues | - |
-| `POST` | `/api/issues` | Submit a new issue report | `{ category, description, lat, lng, photo }` |
-| `POST` | `/api/predict` | AI water quality prediction | `{ ph, turbidity, tds, temperature }` |
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/api/predict` | Classify water parameters (pH, turbidity, TDS, temp) |
+| `GET`  | `/api/sources` | List all water sources with live quality status |
+| `GET`  | `/api/sources/nearby` | Query sources near latitude & longitude |
+| `GET`  | `/api/sources/nearest-safe` | Find closest verified Safe source with navigation route |
+| `GET`  | `/api/reports` | List community contamination reports |
+| `POST` | `/api/reports` | Submit a new citizen water quality report |
+| `POST` | `/api/reports/{id}/upvote` | Upvote a community report |
+| `GET`  | `/api/alerts` | Active water quality advisory alerts |
+| `GET`  | `/api/analytics/summary` | City-wide metrics, stats & safe percentage |
 
+---
+
+## ⚙️ Installation & Setup
+
+### Prerequisites
+- **Python 3.10+**
+- **Node.js 18+** & npm
+
+### 1. Backend Setup
+```bash
+# Clone the repository
+git clone https://github.com/sankalpgaidhane77-star/AquaShield-AI.git
+cd AquaShield-AI
+
+# Create and activate virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Seed the database with demo water sources and reports
+python backend/seed_data.py
+
+# Start the FastAPI server
+uvicorn backend.app.main:app --reload --port 8000
+```
+Interactive API documentation will be available at `http://localhost:8000/docs`.
+
+### 2. Frontend Setup
+```bash
+# In a new terminal, navigate to the frontend folder
+cd frontend
+
+# Install npm packages
+npm install
+
+# Start the development server
+npm run dev
+```
+Open `http://localhost:5173` in your browser.
+
+---
+
+## 🧪 Running Tests
+
+Run the backend test suite:
+```bash
+pytest backend/tests/
+```
+
+Run frontend build verification:
+```bash
+cd frontend
+npm run build
+```
+
+---
+
+## 📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
